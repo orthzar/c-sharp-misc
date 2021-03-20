@@ -8,10 +8,9 @@ using System.Drawing;
 public class MyClass
 {
 //    public Bitmap (string filename);
-    public static Image image1;
     public static void Main()
     {
-        image1 = new Bitmap("./jungle-arc.png", true);
+        var image1 = new Bitmap("./jungle-arc.png", true);
         
         int x, y;
         

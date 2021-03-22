@@ -1,4 +1,4 @@
-// This program accepts a png, inverts all the colors, and outputs another file with "-inverted" added to the file.
+// This program accepts a png, inverts all the colors, and outputs another png.
 
 using System;
 using System.Drawing;
@@ -19,11 +19,11 @@ public class MyClass
             for(y=0; y<image1.Height; y++)
             {
                 Color pixelColor = image1.GetPixel(x, y);
-                Color invRed1 = 2147483647 ^ Color.FromArgb(pixelColor.R);
-                Color invGreen1 = 2147483647 ^ Color.FromArgb(pixelColor.G);
-                Color invBlue1 = 2147483647 ^ Color.FromArgb(pixelColor.B);
-                Color invColor1 = Color.FromArgb(invRed1, invGreen1, invBlue1);
-                image1.SetPixel(x, y, invColor1);
+                var invertedRed = 2147483647 ^ pixelColor.R;
+                var invertedGreen = 2147483647 ^ pixelColor.G;
+                var invertedBlue = 2147483647 ^ pixelColor.B;
+                var invertedColor = Color.FromArgb(invertedBlue, invertedGreen, invertedRed);
+                image1.SetPixel(x, y, invertedColor);
             }
         }
         image1.Save("./jungle-arc-inverted.png");
